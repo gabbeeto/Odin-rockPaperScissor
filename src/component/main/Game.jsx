@@ -1,3 +1,6 @@
+
 export default function GameDisplayer(){
-return (<div className="text-orange-400">game displayer</div>)
+
+
+return (<canvas id="scene">game displayer</canvas>)
 }
