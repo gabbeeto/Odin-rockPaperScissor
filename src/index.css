@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+background-color: black;
+}
 
 *{
 margin: 0;
