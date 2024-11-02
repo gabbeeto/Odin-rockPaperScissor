@@ -1,7 +1,7 @@
 import {useEffect} from 'react'
 import * as three from 'three'
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
-import stage from './../../objectsIn3D/stage.glb'
+import stage from './../../objectsIn3D/stage2.glb'
 import {degToRad} from 'three/src/math/MathUtils';
 
 
@@ -47,7 +47,7 @@ function load3DScene() {
 	// console.log(sceneRender)
 
 	// scene.add(new three.AxesHelper())
-	scene.add(new three.AmbientLight())
+	// scene.add(new three.AmbientLight())
 	loadStageFile()
 
 	// Object3D.lightOff = true
