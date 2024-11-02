@@ -4,26 +4,20 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
 
 window.canvasId = [];
 
+export default function ({stage, widthAndHeightArray = [window.innerWidth, window.innerHeight], alpha = true, extraFunctionality = function () {}, idForObject = `scene${window.canvasId.length + 1}`, className = ``}) {
 
-
-
-export default function ({stage, widthAndHeightArray = [window.innerWidth, window.innerHeight], alpha = true, extraFunctionality = function () {}, idForObject = `scene${window.canvasId.length + 1}`}) {
-
-
-
-
-
+	// console.log(stage)
 	let [width, height] = widthAndHeightArray;
 	useEffect(() => load3DScene(idForObject, stage, width, height, alpha, extraFunctionality), [])
 
 	return (
-		<canvas id={idForObject} className='p-5'>game displayer</canvas>
+		<canvas className={className} id={idForObject} ></canvas>
 	)
 }
 
 function load3DScene(canvas, stage, width, height, alpha = true, extraFunctionality) {
 	let scene = new three.Scene();
-	console.log(`#${canvas}`)
+	// console.log(`#${canvas}`)
 	let sceneRender = new three.WebGLRenderer({
 		canvas: document.querySelector(`#${canvas}`),
 		alpha
@@ -40,7 +34,7 @@ function load3DScene(canvas, stage, width, height, alpha = true, extraFunctional
 }
 
 
-function loadStageFile(stageText,scene) {
+function loadStageFile(stageText, scene) {
 	let objectLoader = new GLTFLoader();
 
 	objectLoader.load(stageText, (file) => {
@@ -50,8 +44,20 @@ function loadStageFile(stageText,scene) {
 
 function animate(extraFunctionality = () => {}, scene, sceneRender) {
 	if (scene.children[1]) {
-		let object = scene.children[1].children[0]
-		let camera = scene.children[1].children[1]
+
+		let object;
+		let camera;
+
+
+
+		for (let child of scene.children[1].children) {
+			if (child.name.startsWith("0")) {
+				camera = child
+			}
+			else {
+				object = child
+			}
+		}
 
 		extraFunctionality(object, camera)
 		sceneRender.render(scene, camera);
