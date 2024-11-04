@@ -5,12 +5,17 @@ import Scissor from './../../objectsIn3D/scissor.glb'
 
 import Displayer from "../display3DObjects/DisplayerFor3D.jsx"
 import playOneRound from './logic.js'
+import setScore from '../../matchlogic'
+import renderWebsite from '../../main.jsx'
 
 
 function ItemChoice({stage, id, choiceId}) {
 
+
 	function choose() {
-		console.log(playOneRound(choiceId))
+		window.currentChoices = playOneRound(choiceId)
+		setScore()
+		renderWebsite()
 	}
 
 	const selectorStyle = 'bg-orange-500 p-4 hover:bg-amber-400  rounded-lg ';

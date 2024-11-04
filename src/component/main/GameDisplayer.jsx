@@ -18,8 +18,19 @@ function RotateToTheRightAndComeBack() {
 
 
 export default function MainElement() {
-	return <section className='flex justify-center items-center'>
+
+
+	return <section className='flex justify-center items-center flex-col'>
 		<Displayer stage={CloudStage} widthAndHeightArray={[window.innerWidth * .8, window.innerHeight * .8]} extraFunctionality={object => {RotateToTheRightAndComeBack(); object.rotation.y = rotation}} idForObject='stage1' />
+
+		<h2 className='text-orange-400'>{
+			window.currentChoices && window.currentChoices.winner != "=" ? `${window.currentChoices.winner} has won because human has chosen ${window.currentChoices.humanChoice} and computer has chosen ${window.currentChoices.computerChoice}` : window.currentChoices.winner == "=" ? `it's even because both has chosen ${currentChoices.humanChoice}` :``
+
+		}
+
+		</h2>
+		<h2 className='text-orange-400'>{`human:${window.score.human}`}</h2>
+		<h2 className='text-orange-400'>{`computer:${window.score.computer}`}</h2>
 	</section>
 
 }
