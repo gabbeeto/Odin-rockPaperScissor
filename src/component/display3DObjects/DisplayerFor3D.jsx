@@ -28,7 +28,7 @@ function load3DScene(canvas, stage, width, height, alpha = true, extraFunctional
 	scene.add(new three.AmbientLight())
 	loadStageFile(stage, scene)
 
-	sceneRender.setAnimationLoop(() => {animate(extraFunctionality, scene, sceneRender)})
+	sceneRender.setAnimationLoop(() => {animate(extraFunctionality, scene, sceneRender, width, height)})
 
 	window.canvasId.push(canvas);
 }
@@ -42,7 +42,7 @@ function loadStageFile(stageText, scene) {
 	})
 }
 
-function animate(extraFunctionality = () => {}, scene, sceneRender) {
+function animate(extraFunctionality = () => {}, scene, sceneRender, width, height) {
 	if (scene.children[1]) {
 
 		let objects = [];

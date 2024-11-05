@@ -18,6 +18,7 @@ export default function renderWebsite() {
 		<Footer />
 		<dialog className='bg-emerald-700 p-10 rounded-lg backdrop:bg-emerald-400 backdrop:opacity-45' onCancel={e => {e.preventDefault()}}  >
 
+		<h2></h2>
 
 		<button
 		onClick={() => {window.location.reload(true)}}

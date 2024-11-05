@@ -28,5 +28,7 @@ export default function setScore() {
 function finishGame() {
 	window.gameIsFinished = true;
 	let dialog = document.querySelector('dialog')
+	let h2 = dialog.querySelector('h2');
+	h2.innerHTML = `${window.score.human > window.score.computer ? 'human' : 'computer'} won!`;
 	dialog.showModal()
 }
