@@ -15,7 +15,14 @@ export default function renderWebsite() {
 		< Header />
 
 		<MainElement />
-		<Footer/>
+		<Footer />
+		<dialog className='bg-emerald-700 p-10 rounded-lg backdrop:bg-emerald-400 backdrop:opacity-45' onCancel={e => {e.preventDefault()}}  >
+
+
+		<button
+		onClick={() => {window.location.reload(true)}}
+		className='bg-orange-400 rounded-md p-2 hover:bg-teal-400 border-transparent'>play again</button></dialog>
+
 	</div>
 	)
 

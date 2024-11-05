@@ -26,5 +26,7 @@ export default function setScore() {
 }
 
 function finishGame() {
-	alert("game finished")
+	window.gameIsFinished = true;
+	let dialog = document.querySelector('dialog')
+	dialog.showModal()
 }

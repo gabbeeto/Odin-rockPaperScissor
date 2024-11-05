@@ -35,7 +35,7 @@ function ItemChoice({stage, id, choiceId}) {
 
 	}
 
-	const selectorStyle = 'bg-orange-500 p-2 hover:bg-amber-400  rounded-lg ';
+	const selectorStyle = 'bg-orange-500 p-2 hover:bg-amber-400  rounded-lg  cursor-pointer';
 	let directionForItem = 1;
 
 	return (<div
