@@ -45,7 +45,7 @@ function loadStageFile(stageText, scene) {
 function animate(extraFunctionality = () => {}, scene, sceneRender) {
 	if (scene.children[1]) {
 
-		let object;
+		let objects = [];
 		let camera;
 
 
@@ -55,11 +55,11 @@ function animate(extraFunctionality = () => {}, scene, sceneRender) {
 				camera = child
 			}
 			else {
-				object = child
+				objects.push(child)
 			}
 		}
 
-		extraFunctionality(object, camera)
+		extraFunctionality(objects, camera)
 		sceneRender.render(scene, camera);
 	}
 

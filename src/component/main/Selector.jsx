@@ -8,6 +8,7 @@ import playOneRound from './logic.js'
 import setScore from '../../matchlogic'
 import renderWebsite from '../../main.jsx'
 
+window.rockPaperScissorModels = []
 
 function ItemChoice({stage, id, choiceId}) {
 
@@ -16,6 +17,20 @@ function ItemChoice({stage, id, choiceId}) {
 		window.currentChoices = playOneRound(choiceId)
 		setScore()
 		renderWebsite()
+	}
+	function pushElementToGlobal(model) {
+		let modelInluded = false
+		for (let arrayModel of rockPaperScissorModels) {
+			if (model.name == arrayModel.name) {
+				modelInluded = true
+			}
+		}
+		if (modelInluded == false) {
+			rockPaperScissorModels.push(model.clone())
+		}
+
+
+
 	}
 
 	const selectorStyle = 'bg-orange-500 p-4 hover:bg-amber-400  rounded-lg ';
@@ -28,7 +43,14 @@ function ItemChoice({stage, id, choiceId}) {
 		className={selectorStyle}>
 
 		<Displayer stage={stage} widthAndHeightArray={[window.innerWidth * 0.25, window.innerHeight * .25]} idForObject={id}
-			extraFunctionality={object2 => {object2.rotation.y += .01 * directionForItem}} />
+			extraFunctionality={objects => {
+
+				if (!objects[0]) {
+					console.log(objects)
+				}
+				objects[0].rotation.y += .01 * directionForItem;
+				pushElementToGlobal(objects[0])
+			}} />
 
 	</div>)
 }
