@@ -2,6 +2,7 @@ import CloudStage from './../../objectsIn3D/stage.glb'
 import Displayer from "../display3DObjects/DisplayerFor3D.jsx"
 import {createRoot} from 'react-dom/client'
 
+
 let rotation = 0
 let rotationToRightDir = true
 const rotationSpeed = 0.005
@@ -73,7 +74,7 @@ export default function MainElement() {
 		/>
 
 		<h2 className='text-orange-400'>{
-			window.currentChoices && window.currentChoices.winner != "=" ? <> <span className={`p-1 text-black rounded-md ${winnerStyle[window.currentChoices.winner]}`}>{window.currentChoices.winner} </span> has won because human has chosen {window.currentChoices.humanChoice} and computer has chosen {window.currentChoices.computerChoice} </> : window.currentChoices.winner == "=" ? `it's even because both has chosen ${currentChoices.humanChoice}` : ``
+			window.currentChoices && window.currentChoices.winner != "=" ? <> <span className={`p-1 text-black rounded-md ${winnerStyle[window.currentChoices.winner]}`}>{window.currentChoices.winner} </span> has won because human has chosen {window.currentChoices.humanChoice} and computer has chosen {window.currentChoices.computerChoice} </> : window.currentChoices.winner == "=" ? <>it's even because <span className={` text-black rounded-md ${winnerStyle.human}`}>b</span><span className={` text-black rounded-md ${winnerStyle.computer}`}>o</span><span className={` text-black rounded-md ${winnerStyle.human}`}>t</span><span className={` text-black rounded-md ${winnerStyle.computer}`}>h</span>  has chosen  {currentChoices.humanChoice}</> : ``
 
 		}
 
