@@ -19,22 +19,22 @@ function RotateToTheRightAndComeBack() {
 function addTheAppropiateChild(objects) {
 	if (window.currentChoices) {
 
-		objects[1].children = [];
-		objects[2].children = [];
+		objects[0].children[objects[0].children.length - 2].children = [];
+		objects[0].children[objects[0].children.length - 1].children = [];
 		window.currentChoices.humanChoice == "rock"
 		window.rockPaperScissorModels
 		for (let model of rockPaperScissorModels) {
 			if (model.name == window.currentChoices.humanChoice && model.name == window.currentChoices.computerChoice) {
 				let model2 = model.clone()
-				objects[1].add(model);
-				objects[2].add(model2);
+				objects[0].children[objects[0].children.length - 2].add(model);
+				objects[0].children[objects[0].children.length - 1].add(model2);
 			}
 			else if (model.name == window.currentChoices.humanChoice) {
-				objects[1].add(model);
+				objects[0].children[objects[0].children.length - 2].add(model);
 			}
 
 			else if (model.name == window.currentChoices.computerChoice) {
-				objects[2].add(model);
+				objects[0].children[objects[0].children.length - 1].add(model);
 			}
 
 		}
@@ -56,9 +56,7 @@ export default function MainElement() {
 
 
 				// TODO: make all of the items rotate, not just the only one
-				for (let model of objects) {
-					model.rotation.y = rotation
-				}
+				objects[0].rotation.y = rotation
 
 
 
