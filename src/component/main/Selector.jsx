@@ -6,7 +6,8 @@ import Scissor from './../../objectsIn3D/scissor.glb'
 import Displayer from "../display3DObjects/DisplayerFor3D.jsx"
 import playOneRound from './logic.js'
 import setScore from '../../matchlogic'
-import renderWebsite from '../../main.jsx'
+// import renderWebsite from '../../main.jsx'
+import {reRenderMainElement} from './GameDisplayer'
 
 window.rockPaperScissorModels = []
 
@@ -15,8 +16,10 @@ function ItemChoice({stage, id, choiceId}) {
 
 	function choose() {
 		window.currentChoices = playOneRound(choiceId)
+		directionForItem = 1;
 		setScore()
 		renderWebsite()
+		reRenderMainElement()
 	}
 	function pushElementToGlobal(model) {
 		let modelInluded = false

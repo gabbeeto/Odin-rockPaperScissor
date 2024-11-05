@@ -1,5 +1,6 @@
 import CloudStage from './../../objectsIn3D/stage.glb'
 import Displayer from "../display3DObjects/DisplayerFor3D.jsx"
+import {createRoot} from 'react-dom/client'
 
 let rotation = 0
 let rotationToRightDir = true
@@ -45,6 +46,13 @@ function addTheAppropiateChild(objects) {
 	}
 
 }
+
+export function reRenderMainElement() {
+createRoot(document.querySelector('main')).render(<MainElement/>)
+
+}
+
+
 
 export default function MainElement() {
 
