@@ -6,7 +6,6 @@ import Scissor from './../../objectsIn3D/scissor.glb'
 import Displayer from "../display3DObjects/DisplayerFor3D.jsx"
 import playOneRound from './logic.js'
 import setScore from '../../matchlogic'
-// import renderWebsite from '../../main.jsx'
 import {reRenderMainElement} from './GameDisplayer'
 
 window.rockPaperScissorModels = []
@@ -18,7 +17,7 @@ function ItemChoice({stage, id, choiceId}) {
 		window.currentChoices = playOneRound(choiceId)
 		directionForItem = 1;
 		setScore()
-		renderWebsite()
+		// renderWebsite()
 		reRenderMainElement()
 	}
 	function pushElementToGlobal(model) {
@@ -36,7 +35,7 @@ function ItemChoice({stage, id, choiceId}) {
 
 	}
 
-	const selectorStyle = 'bg-orange-500 p-4 hover:bg-amber-400  rounded-lg ';
+	const selectorStyle = 'bg-orange-500 p-2 hover:bg-amber-400  rounded-lg ';
 	let directionForItem = 1;
 
 	return (<div
@@ -45,7 +44,7 @@ function ItemChoice({stage, id, choiceId}) {
 		onClick={choose}
 		className={selectorStyle}>
 
-		<Displayer stage={stage} widthAndHeightArray={[window.innerWidth * 0.25, window.innerHeight * .25]} idForObject={id}
+		<Displayer stage={stage} widthAndHeightArray={[window.innerWidth * 0.15, window.innerHeight * .15]} idForObject={id}
 			extraFunctionality={objects => {
 
 				if (!objects[0]) {
@@ -60,11 +59,11 @@ function ItemChoice({stage, id, choiceId}) {
 
 
 export default function Selector() {
-	const selectorStyle = 'bg-orange-500 p-4 hover:bg-amber-400  rounded-lg ';
-	return <section className='flex justify-center flex-col items-center gap-2 border-orange-400 border-2 p-4 rounded-lg m-4 '>
+	const selectorStyle = 'bg-orange-500 p-2 hover:bg-amber-400  rounded-lg ';
+	return <section className='flex justify-center flex-col items-center gap-2 bg-orange-200  p-2 rounded-lg m-2 '>
 
 		<h2 className=' bg-orange-400  text-black p-4 rounded-lg'>select one</h2>
-		<div className='flex justify-center gap-4 items-center '>
+		<div className='flex justify-center gap-2 items-center '>
 			<ItemChoice id='rock' stage={Rock} choiceId={0} />
 			<ItemChoice id='paper' stage={Paper} choiceId={1} />
 			<ItemChoice id='scissor' stage={Scissor} choiceId={2} />
