@@ -18,23 +18,26 @@ function RotateToTheRightAndComeBack() {
 
 function addTheAppropiateChild(objects) {
 	if (window.currentChoices) {
-
-		objects[0].children[objects[0].children.length - 2].children = [];
-		objects[0].children[objects[0].children.length - 1].children = [];
+		let lastestChildrenIndex = objects[0].children.length - 2
+		let almostLastestChildrenIndex = objects[0].children.length - 1
+		let lastestChildren = objects[0].children[lastestChildrenIndex];
+		let almostLastestChildren = objects[0].children[almostLastestChildrenIndex];
+		lastestChildren.children = [];
+		almostLastestChildren.children = [];
 		window.currentChoices.humanChoice == "rock"
 		window.rockPaperScissorModels
 		for (let model of rockPaperScissorModels) {
 			if (model.name == window.currentChoices.humanChoice && model.name == window.currentChoices.computerChoice) {
 				let model2 = model.clone()
-				objects[0].children[objects[0].children.length - 2].add(model);
-				objects[0].children[objects[0].children.length - 1].add(model2);
+				lastestChildren.add(model);
+				almostLastestChildren.add(model2);
 			}
 			else if (model.name == window.currentChoices.humanChoice) {
-				objects[0].children[objects[0].children.length - 2].add(model);
+				almostLastestChildren.add(model);
 			}
 
 			else if (model.name == window.currentChoices.computerChoice) {
-				objects[0].children[objects[0].children.length - 1].add(model);
+				lastestChildren.add(model);
 			}
 
 		}
@@ -55,7 +58,6 @@ export default function MainElement() {
 				addTheAppropiateChild(objects)
 
 
-				// TODO: make all of the items rotate, not just the only one
 				objects[0].rotation.y = rotation
 
 
