@@ -35,11 +35,13 @@ function addTheAppropiateChild(objects) {
 				almostLastestChildren.add(model2);
 			}
 			else if (model.name == window.currentChoices.humanChoice) {
-				almostLastestChildren.add(model);
+
+				lastestChildren.add(model);
 			}
 
 			else if (model.name == window.currentChoices.computerChoice) {
-				lastestChildren.add(model);
+
+				almostLastestChildren.add(model);
 			}
 		}
 	}
